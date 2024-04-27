@@ -74,25 +74,11 @@
     border: 2px solid black;
 }
 
-@media (max-width: 991px) {
-    #titleSection{
-        width: 500px;
-        height: 150px;
-        position: relative;
-        top: 1%;
-        text-align: center;
-        left: 15%;
-    }
-}
-
-@media (max-width: 767px) {
-    #titleSection{
-        width: 500px;
-        height: 150px;
-        position: relative;
-        top: 1%;
-        text-align: center;
-        left: 5%;
-    }
+.text{
+    padding: 26px 10px;
+    font-size: 79px;
+    /* border: 2px solid; */
+    font-family: serif;
+    color: black;
 }
 
