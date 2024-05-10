@@ -18,6 +18,13 @@ $('#orderAdd').on('click',()=>{
 
     var item = itemData[index];
 
+    // check Quantity is enough
+
+    if(qty>item.qty){
+        alert("over the Quantity");
+        return;
+    }
+
     let order = new orderModel(item.id,item.name,item.price,qty,item.desc);
 
     orderData.push(order);
