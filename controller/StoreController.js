@@ -10,7 +10,7 @@ $('#proSubmit').on('click',() =>{
     var proDesc = $('#proDesc').val();
     var proPrice = $('#proPrice').val();
 
-    let store = new StoreModel(proId,proName,proQty,proDesc,proPrice);
+    let store = new StoreModel(proId,proName,proPrice,proQty,proDesc);
 
     itemData.push(store);
 
@@ -55,10 +55,39 @@ $('#pro-table').on('click', 'tr',function () {
 
     $('#proId').val(storeId);
     $('#proName').val(storeName);
-    $('#proQty').val(storePrice);
-    $('#proDesc').val(storeQty);
-    $('#proPrice').val(storeDesc);
+    $('#proQty').val(storeQty);
+    $('#proDesc').val(storeDesc);
+    $('#proPrice').val(storePrice);
 
+});
 
+$('#proUpdate').on('click',() =>{
 
+    var proId = $('#proId').val();
+    var proName = $('#proName').val();
+    var proQty = $('#proQty').val();
+    var proDesc = $('#proDesc').val();
+    var proPrice = $('#proPrice').val();
+
+    let store = itemData[recodeIndex];
+
+    store.id=proId;
+    store.name=proName;
+    store.qty=proQty;
+    store.price=proPrice;
+    store.desc=proDesc;
+
+    loadTable();
+
+    $('#proReset').click();
+
+});
+
+$('#proDelete').on('click',() =>{
+
+    itemData.splice(recodeIndex,1);
+
+    loadTable();
+
+    $('#proReset').click();
 });
