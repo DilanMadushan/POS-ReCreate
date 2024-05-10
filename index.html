@@ -80,7 +80,7 @@
                     <div class="card-body">
                         <form>
                             <div class="mb-3">
-                                <label for="item_Id" class="form-label">Item_Id</label>
+                                <label for="proId" class="form-label">Item_Id</label>
                                 <input type="number" class="form-control" id="proId">
                             </div>
                             <div class="mb-3">
@@ -238,8 +238,8 @@
                     <div class="card-body">
                         <form>
                             <div class="mb-3">
-                                <label for="item_id" class="form-label">Item_Id</label>
-                                <input type="number" class="form-control" id="item_id">
+                                <label for="orderItem_id" class="form-label">Item_Id</label>
+                                <input type="number" class="form-control" id="orderItem_id">
                             </div>
                             <div class="mb-3">
                                 <label for="orderQty" class="form-label">qty</label>
@@ -251,7 +251,8 @@
 
                             <!--            buttons-->
                             <div class="mt-4">
-                                <button type="button" class="btn brandButtons">Add</button>
+                                <button id="orderAdd" type="button" class="btn brandButtons">Add</button>
+                                <button id="reset" type="reset" class="btn brandButtons">reset</button>
 
                             </div>
                             <br>
@@ -275,7 +276,7 @@
                     </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="order-table">
                     <tr >
                         <th scope="row">1</th>
                         <td>Cake</td>
@@ -283,38 +284,23 @@
                         <td>30</td>
                         <td>some description</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cookie</td>
-                        <td>300.00</td>
-                        <td>100</td>
-                        <td>some description</td>
-                    </tr>
-                    <tr >
-                        <th scope="row">3</th>
-                        <td>chocolate</td>
-                        <td>500.00</td>
-                        <td>1000</td>
-                        <td>some description</td>
-                    </tr>
-
                     </tbody>
                 </table>
 
                 <br>
 
-                <h3>Total :</h3>
+                <h3 id="total">Total :</h3>
 
                 <br>
 
                 <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="payment" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary brandButtons" type="button" id="button-addon2">Pay</button>
+                    <input id="payment" type="number" class="form-control" placeholder="payment" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button id="payAction" class="btn btn-outline-secondary brandButtons" type="button" id="button-addon2">Pay</button>
                 </div>
 
                 <br>
 
-                <h3>Balance : </h3>
+                <h3 id="balance">Balance : </h3>
 
             </div>
 
@@ -328,6 +314,7 @@
 <script src="Assets/js/scprits.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/StoreController.js"></script>
+<script type="module" src="controller/OrderController.js"></script>
 
 </body>
 </html>

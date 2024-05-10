@@ -2,6 +2,7 @@ import {StoreModel} from '/model/StoreModel.js'
 import {itemData} from '/db/db.js'
 
 var recodeIndex;
+
 $('#proSubmit').on('click',() =>{
 
     var proId = $('#proId').val();
