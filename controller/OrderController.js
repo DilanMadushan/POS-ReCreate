@@ -6,6 +6,8 @@ $('#reset').css({display:'none'});
 let total = 0;
 
 let loop = 0;
+
+
 $('#orderAdd').on('click',()=>{
 
     var id = $('#orderItem_id').val();
@@ -25,6 +27,8 @@ $('#orderAdd').on('click',()=>{
         return;
     }
 
+
+
     let order = new orderModel(item.id,item.name,item.price,qty,item.desc);
 
     orderData.push(order);
@@ -35,7 +39,7 @@ $('#orderAdd').on('click',()=>{
 
     calculate();
 
-    $('#total').text("Total :"+total);
+    $('#total').text("Total :"+total+".00");
 
 });
 
