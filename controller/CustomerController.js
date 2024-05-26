@@ -108,6 +108,7 @@ $('#customer-table').on('click', 'tr',function () {
 
 function validation(){
 
+   //trigger key was pressed
 
    $('#cusId').on('propertychange input', function (e) {
 
