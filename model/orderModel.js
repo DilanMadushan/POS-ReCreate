@@ -1,10 +1,28 @@
 export class orderModel{
-    constructor(id,name,price,qty,desc) {
+    constructor(orderId,customerId,id,name,price,qty,desc) {
         this._id = id;
         this._name = name;
         this._price = price;
         this._qty = qty;
         this._desc = desc;
+        this._orderId = orderId;
+        this._customerId = customerId;
+    }
+
+    get orderId() {
+        return this._orderId;
+    }
+
+    set orderId(value) {
+        this._orderId = value;
+    }
+
+    get customerId() {
+        return this._customerId;
+    }
+
+    set customerId(value) {
+        this._customerId = value;
     }
 
     get id() {

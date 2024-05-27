@@ -114,6 +114,14 @@ function validation(){
 
       var cusId = $("#cusId").val();
 
+      let index = customerData.findIndex(item => item.id === cusId);
+      console.log("cus : "+index);
+
+      if (index === 0) {
+         $('#cusId').css("border","2px solid #FF00FF");
+         return;
+      }
+
       if(!cusId.match("[C]\\d{3,}")){
          $('#cusId').css("border","2px solid red");
       }else{
@@ -159,9 +167,17 @@ function validation(){
 
    });
 
-   return true;
+   var cusId = $("#cusId").val();
+   var cusName = $("#cusName").val();
+   var cusTel = $("#cusTel").val();
+   var cusAddress = $("#cusAddress").val();
 
+   if(cusId.length ===0 || cusName.length ===0 || cusTel.length ===0 || cusAddress.length ===0){
+      return false;
+   }else {
+      return true;
 
+   }
 
 }
 

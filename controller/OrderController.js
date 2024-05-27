@@ -8,16 +8,18 @@ let total = 0;
 let loop = 0;
 
 
+validation();
+
 $('#orderAdd').on('click',()=>{
 
-
-    var id = $('#orderItem_id').val();
+    var orderId = $('#orderId').val();
+    var customerId = $('#cusId').val();
+    var itemId = $('#orderItem_id').val();
     var qty =$('#orderQty').val();
-
 
     console.log(id);
 
-    let index = itemData.findIndex(item => item.id === id);
+    let index = itemData.findIndex(item => item.id === itemId);
     console.log(index);
 
     var item = itemData[index];
@@ -29,9 +31,7 @@ $('#orderAdd').on('click',()=>{
         return;
     }
 
-
-
-    let order = new orderModel(item.id,item.name,item.price,qty,item.desc);
+    let order = new orderModel(orderId,customerId,item.id,item.name,item.price,qty,item.desc);
 
     orderData.push(order);
 
@@ -79,20 +79,40 @@ $('#payAction').on('click' ,()=>{
 
 });
 
-$('#orderItem_id').on('propertychange input', function (e) {
 
-    $('#orderItem_id').css("border","2px solid purple");
+function validation(){
 
-    var iID = $('#orderItem_id').val();
+    $('#orderItem_id').on('propertychange input', function (e) {
 
-    let index = itemData.findIndex(item => item.id === iID);
-    console.log(index);
 
-    if(index === -1){
-        $('#orderItem_id').css("border","2px solid red");
-    }else {
-        $('#orderItem_id').css("border","2px solid green");
-    }
+        var iID = $('#orderItem_id').val();
 
-});
+        let index = itemData.findIndex(item => item.id === iID);
+        console.log(index);
+
+        if(index === -1){
+            $('#orderItem_id').css("border","2px solid red");
+        }else {
+            $('#orderItem_id').css("border","2px solid #92F646");
+        }
+
+    });
+
+    $('#customerId').on('propertychange input', function (e) {
+
+        var cId = $('#customerId').val();
+
+        let index = customerData.findIndex(item => item.id === cId);
+        console.log(index);
+
+        if(index === -1){
+            $('#customerId').css("border","2px solid red");
+        }else {
+            $('#customerId').css("border","2px solid #92F646");
+        }
+
+    });
+
+}
+
 
