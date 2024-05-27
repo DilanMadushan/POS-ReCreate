@@ -3,6 +3,8 @@ import {itemData} from '/db/db.js'
 
 var recodeIndex;
 
+
+validation();
 $('#proSubmit').on('click',() =>{
 
     var proId = $('#proId').val();
@@ -10,6 +12,13 @@ $('#proSubmit').on('click',() =>{
     var proQty = $('#proQty').val();
     var proDesc = $('#proDesc').val();
     var proPrice = $('#proPrice').val();
+
+    console.log(validation());
+
+    if (!validation()) {
+        alert("Fill the details Properly");
+        return;
+    }
 
     let store = new StoreModel(proId,proName,proPrice,proQty,proDesc);
 
@@ -92,3 +101,84 @@ $('#proDelete').on('click',() =>{
 
     $('#proReset').click();
 });
+
+
+function validation(){
+
+    //trigger key was pressed
+
+    $('#proId').on('propertychange input', function (e) {
+
+        var proId = $('#proId').val();
+
+        if(!proId.match("[I]\\d{3,}")){
+            $('#proId').css("border","2px solid red");
+        }else{
+            $('#proId').css("border","2px solid #92F646");
+        }
+
+    });
+
+    $('#proName').on('propertychange input', function (e) {
+
+        var proName = $('#proName').val();
+
+        if(!proName.match( "^[A-Z][a-zA-Z]{2,}$")){
+            $('#proName').css("border","2px solid red");
+        }else{
+            $('#proName').css({"border":"2px solid #92F646"});
+        }
+
+    });
+
+    $('#proPrice').on('propertychange input', function (e) {
+
+        var proPrice = $('#proPrice').val();
+
+
+        if(!proPrice.match("^\\d+$")){
+            $('#proPrice').css("border","2px solid red");
+        }else{
+            $('#proPrice').css("border","2px solid #92F646");
+        }
+
+    });
+
+    $('#proQty').on('propertychange input', function (e) {
+
+        var proQty = $('#proQty').val();
+
+        if(!proQty.match( "^\\d+$")){
+            $('#proQty').css("border","2px solid red");
+        }else{
+            $('#proQty').css("border","2px solid #92F646");
+        }
+
+    });
+
+    $('#proDesc').on('propertychange input', function (e) {
+
+        var proDesc = $('#proDesc').val();
+
+
+        if(!proDesc.match("^[A-Z][a-zA-Z]{4,}$")){
+            $('#proDesc').css("border","2px solid red");
+        }else{
+            $('#proDesc').css("border","2px solid #92F646");
+        }
+
+    });
+
+    var proId = $('#proId').val();
+    var proName = $('#proName').val();
+    var proQty = $('#proQty').val();
+    var proDesc = $('#proDesc').val();
+    var proPrice = $('#proPrice').val();
+
+    if(proId.length === 0 || proName.length === 0  || proQty.length === 0 || proDesc.length === 0 || proPrice.length === 0){
+        return false;
+    }else {
+        return true
+    }
+
+}
