@@ -10,8 +10,10 @@ let loop = 0;
 
 $('#orderAdd').on('click',()=>{
 
+
     var id = $('#orderItem_id').val();
     var qty =$('#orderQty').val();
+
 
     console.log(id);
 
@@ -74,6 +76,23 @@ $('#payAction').on('click' ,()=>{
     var balance = payment-total;
 
     $('#balance').text("Balance : "+balance+".00");
+
+});
+
+$('#orderItem_id').on('propertychange input', function (e) {
+
+    $('#orderItem_id').css("border","2px solid purple");
+
+    var iID = $('#orderItem_id').val();
+
+    let index = itemData.findIndex(item => item.id === iID);
+    console.log(index);
+
+    if(index === -1){
+        $('#orderItem_id').css("border","2px solid red");
+    }else {
+        $('#orderItem_id').css("border","2px solid green");
+    }
 
 });
 

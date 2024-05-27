@@ -182,3 +182,48 @@ function validation(){
     }
 
 }
+
+$('#proId').keypress(function (e){
+    var key = e.which;
+
+    if(key===13){
+        $('#proName').focus();
+    }
+
+});
+
+$('#proName').keypress(function (e){
+    var key = e.which;
+
+    if(key===13){
+        $('#proPrice').focus();
+    }
+
+});
+
+$('#proPrice').keypress(function (e){
+    var key = e.which;
+
+    if(key===13){
+        $('#proQty').focus();
+    }
+
+});
+
+$('#proQty').keypress(function (e){
+    var key = e.which;
+
+    if(key===13){
+        $('#proDesc').focus();
+    }
+
+});
+
+$('#proDesc').keypress(function (e){
+    var key = e.which;
+
+    if(key===13){
+        $('#proSubmit').click();
+    }
+
+});
