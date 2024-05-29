@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <link rel="stylesheet" href="Assets/css/Style.css">
+
+    <style>
+        .swal-custom-popup {
+            background-color: white !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -120,7 +127,7 @@
             <br><br>
 
             <div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                <table class="table table-bordered" style="border: 2px solid red; text-align: center" >
+                <table class="table table-bordered" style="border: 2px solid red; text-align: center; border-radius: 50px;" >
                     <thead>
                     <tr >
                         <th scope="col" >Item_Id</th>
@@ -318,6 +325,7 @@
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/StoreController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 </body>
 </html>

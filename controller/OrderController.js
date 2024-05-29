@@ -17,14 +17,17 @@ $('#orderAdd').on('click',()=>{
     var itemId = $('#orderItem_id').val();
     var qty =$('#orderQty').val();
 
-    console.log(id);
+    console.log(itemId);
 
     let index = itemData.findIndex(item => item.id === itemId);
     console.log(index);
 
     var item = itemData[index];
 
+    console.log(item.qty);
     // check Quantity is enough
+
+    console.log(qty);
 
     if(qty>item.qty){
         alert("over the Quantity");
@@ -113,6 +116,95 @@ function validation(){
 
     });
 
+    $('#orderId').on('propertychange input', function (e) {
+
+        var cId = $('#orderId').val();
+
+        let index = orderData.findIndex(item => item.id === cId);
+        console.log(index);
+
+        if (index === 0) {
+            $('#orderId').css("border","2px solid #FF00FF");
+            return;
+        }
+
+        if(!cId.match("[O]\\d{3,}")){
+            $('#orderId').css("border","2px solid red");
+        }else {
+            $('#orderId').css("border","2px solid #92F646");
+        }
+
+    });
+
 }
+
+$('#place').on('click',()=>{
+
+    if(orderData.length !=0){
+        Swal.fire({
+            title: "Order Success!",
+            text: "You clicked the button!",
+            icon: "success",
+            customClass: {
+                popup: 'swal-custom-popup'
+            }
+
+        });
+    }else{
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            customClass: {
+                popup: 'swal-custom-popup'
+            }
+        });
+    }
+
+    $('#reset').click();
+
+    $('#order-table').empty();
+
+})
+
+$('#orderId').keypress(function (e){
+    var key = e.which;
+    console.log(key);
+
+    if(key===13){
+        $('#customerId').focus();
+    }
+
+});
+
+$('#customerId').keypress(function (e){
+    var key = e.which;
+    console.log(key);
+
+    if(key===13){
+        $('#orderItem_id').focus();
+    }
+
+});
+
+$('#orderItem_id').keypress(function (e){
+    var key = e.which;
+    console.log(key);
+
+    if(key===13){
+        $('#orderQty').focus();
+    }
+
+});
+
+$('#orderQty').keypress(function (e){
+    var key = e.which;
+    console.log(key);
+
+    if(key===13){
+        $('#orderAdd').click();
+    }
+
+});
 
 
